@@ -3,6 +3,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="DiceRolling/DiceRolling.vcxproj" Id="95024708-61c2-4397-87de-498f24cb16b3" />
   <Project Path="September 22/September 22.vcxproj" Id="595e22cf-26cb-4e08-90ba-211f1e793707" />
   <Project Path="September 24/September 24.vcxproj" Id="ff512074-28d1-4b9d-9b11-1ae3ecfc8a29" />
 </Solution>
