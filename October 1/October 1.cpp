@@ -9,7 +9,7 @@ void printListOfNumbers(vector<int> numbers)
 {
 	cout << numbers.size() << "\n";
 
-	for (int i = 0; i < numbers.size( i++)
+	for (int i = 0; i < numbers.size(); i++)
 	{
 		cout << numbers[i] << "\n";
 	}

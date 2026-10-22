@@ -1,46 +1,60 @@
 #include <iostream>
 #include <vector>
 
+
+std::vector<std::string> RPSChoices = { "Rock", "Paper", "Scissors" };
+
 int playerChoiceOfRPS()
 {
 	int playerChoice;
 	std::cout << "Choose your move! 1:Rock, 2:Paper, 3:Scissors" << std::endl;
 	std::cin >> playerChoice;
 
-	switch (playerChoice)
+	while (true)
 	{
-	case 1:
-		std::cout << "You chose Rock." << std::endl;
-		break;
-	case 2:
-		std::cout << "You chose Paper." << std::endl;
-		break;
-	case 3:
-		std::cout << "You chose Scissors." << std::endl;
-		break;
-	default:
-		std::cout << "Invalid choice. Please choose 1 for Rock, 2 for Paper, or 3 for Scissors." << std::endl;
-		break;
-	}
+		if (playerChoice == 1)
+		{
+			std::cout << "You chose " << RPSChoices[0] << std::endl;
+			return playerChoice;
+		}
 
-	return playerChoice;
+		else if (playerChoice == 2)
+		{
+			std::cout << "You chose " << RPSChoices[1] << std::endl;
+			return playerChoice;
+		}
+
+		else if (playerChoice == 3)
+		{
+			std::cout << "You chose " << RPSChoices[2] << std::endl;
+			return playerChoice;
+		}
+
+		else
+		{
+			std::cout << "Invalid choice. Please choose 1 for Rock, 2 for Paper, or 3 for Scissors." << std::endl;
+			std::cin >> playerChoice;
+			continue;
+		}
+	}//while end
 }
 
 
 int computerChoiceOfRPS()
 {
+	srand(time(0));
 	int computerChoice = rand() % 3 + 1;
 
 	switch (computerChoice)
 	{
 	case 1:
-		std::cout << "Computer chose Rock." << std::endl;
+		std::cout << "Computer chose " << RPSChoices[0] << std::endl;
 		break;
 	case 2:
-		std::cout << "Computer chose Paper." << std::endl;
+		std::cout << "Computer chose " << RPSChoices[1] << std::endl;
 		break;
 	case 3:
-		std::cout << "Computer chose Scissors." << std::endl;
+		std::cout << "Computer chose " << RPSChoices[2] << std::endl;
 		break;
 	}
 
@@ -71,6 +85,7 @@ std::string RPSWinner(int playerChoice, int computerChoice)
 
 }
 
+std::vector<std::string> AMHChoices = { "Up", "Down", "Left", "Right" };
 
 int playerChoiceOfDirection()
 {
@@ -81,16 +96,16 @@ int playerChoiceOfDirection()
 	switch (playerChoice)
 	{
 	case 1:
-		std::cout << "You chose Up." << std::endl;
+		std::cout << "You chose " << AMHChoices[0] << std::endl;
 		break;
 	case 2:
-		std::cout << "You chose Down." << std::endl;
+		std::cout << "You chose " << AMHChoices[1] << std::endl;
 		break;
 	case 3:
-		std::cout << "You chose Left." << std::endl;
+		std::cout << "You chose " << AMHChoices[2] << std::endl;
 		break;
 	case 4:
-		std::cout << "You chose Right." << std::endl;
+		std::cout << "You chose " << AMHChoices[3] << std::endl;
 		break;
 	default:
 		std::cout << "Invalid choice. Please choose 1 for Up, 2 for Down, 3 for Left, or 4 for Right." << std::endl;
@@ -107,16 +122,16 @@ int computerChoiceOfDirection()
 	switch (computerChoice)
 	{
 	case 1:
-		std::cout << "Computer chose Up." << std::endl;
+		std::cout << "Computer chose " << AMHChoices[0] << std::endl;
 		break;
 	case 2:
-		std::cout << "Computer chose Down." << std::endl;
+		std::cout << "Computer chose " << AMHChoices[1] << std::endl;
 		break;
 	case 3:
-		std::cout << "Computer chose Left." << std::endl;
+		std::cout << "Computer chose " << AMHChoices[2] << std::endl;
 		break;
 	case 4:
-		std::cout << "Computer chose Right." << std::endl;
+		std::cout << "Computer chose " << AMHChoices[3] << std::endl;
 	}
 
 	return computerChoice;
