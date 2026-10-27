@@ -15,6 +15,8 @@ int main()
 		<< "If you turn your face to a different direction than your opponent's finger, you will play 'Rock Paper Scissors' game again.\n"
 		<< "Let's start the game!\n";
 
+	srand(time(0));
+
 	bool gameRunning = true;
 
 	while (gameRunning)
