@@ -1,5 +1,9 @@
-#include"HiLo.h"
+#include"RockPaperScissors.h"
+#include"AchiMuiteHoi.h"
 #include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
 
 int main()
 {
@@ -43,6 +47,10 @@ int main()
 		if (winnerOfAMH == "player" || winnerOfAMH == "computer")
 		{
 			gameRunning = false;
+		}
+		else
+		{
+			continue;
 		}
 
 		system("pause");

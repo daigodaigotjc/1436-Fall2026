@@ -139,11 +139,13 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="HiLo.cpp" />
+    <ClCompile Include="AchiMuiteHoi.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RockPaperScissors.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HiLo.h" />
+    <ClInclude Include="AchiMuiteHoi.h" />
+    <ClInclude Include="RockPaperScissors.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
