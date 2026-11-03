@@ -7,6 +7,7 @@
 
 int main()
 {
+	//explanation of Achi Muite Hoi game
 	std::cout << "This is 'Achi Muite Hoi' game.\n"
 		<< "This game is a Japanese game.\n"
 		<< "To begin with, you will play 'Rock Paper Scissors' game.\n"
@@ -26,23 +27,35 @@ int main()
 	while (gameRunning)
 	{
 		int playerChoice = playerChoiceOfRPS();
-		int computerChoice = computerChoiceOfRPS();
 
-		std::string winnerOfRPS = RPSWinner(playerChoice, computerChoice);
-
-		if (winnerOfRPS == "draw")
+		//imedeately finish if player chooses "quit"
+		if (playerChoice == 4)
 		{
-			while (winnerOfRPS == "draw")
-			{
-				playerChoice = playerChoiceOfRPS();
-				computerChoice = computerChoiceOfRPS();
-				winnerOfRPS = RPSWinner(playerChoice, computerChoice);
-			}
+			std::cout << "\033[33m" << "Thanks for playing!" << "\033[0m" << std::endl;
+			return 0;
 		}
 
+		int computerChoice = computerChoiceOfRPS();
+		std::string winnerOfRPS = RPSWinner(playerChoice, computerChoice);
+
+		
+		while (winnerOfRPS == "draw")
+		{
+			playerChoice = playerChoiceOfRPS();
+			if (playerChoice == 4)
+			{
+				std::cout << "\033[33m" << "Thanks for playing!" << "\033[0m" << std::endl;
+				return 0;
+			}
+			computerChoice = computerChoiceOfRPS();
+			winnerOfRPS = RPSWinner(playerChoice, computerChoice);
+		}
+		
+		//start Achi Muite Hoi
 		int playerDirection = playerChoiceOfDirection();
 		int computerDirection = computerChoiceOfDirection();
 		std::string winnerOfAMH = AMHWinner(playerDirection, computerDirection, winnerOfRPS);
+
 
 		if (winnerOfAMH == "player" || winnerOfAMH == "computer")
 		{
@@ -50,13 +63,9 @@ int main()
 		}
 		else
 		{
-			continue;
+			system("pause");
+			system("cls");
 		}
-
-		system("pause");
-		system("cls");
 	}
-
 	return 0;
-	
 }
