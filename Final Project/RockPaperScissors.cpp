@@ -82,13 +82,13 @@ std::vector<std::string> Winner = { "player", "computer", "draw" };
 //function for deciding a winner 
 std::string RPSWinner(int playerChoice, int computerChoice)
 {
-	std::string winner;
+	std::string winnerOfRPS;
 
 	//in draw case, the sentence is shown in green (\033[32m)
 	if (playerChoice == computerChoice)
 	{
 		std::cout << "\033[32m" << "It's a draw! Play again." << "\033[0m" << std::endl;
-		winner = Winner[2];
+		winnerOfRPS = Winner[2];
 	}
 	//if player wins, the sentence is shown in red
 	else if ((playerChoice == 1 && computerChoice == 3) ||
@@ -96,13 +96,13 @@ std::string RPSWinner(int playerChoice, int computerChoice)
 		(playerChoice == 3 && computerChoice == 2))
 	{
 		std::cout << "\033[31m" << "You win! Now choose a direction to point your finger." << "\033[0m" << std::endl;
-		winner = Winner[0];
+		winnerOfRPS = Winner[0];
 	}
 	//if computerChoice wins, the sentence is shown in yellow
 	else
 	{
 		std::cout << "\033[33m" << "Computer wins! Now choose a direction to turn your face." << "\033[0m" << std::endl;
-		winner = Winner[1];
+		winnerOfRPS = Winner[1];
 	}
-	return winner;
+	return winnerOfRPS;
 }

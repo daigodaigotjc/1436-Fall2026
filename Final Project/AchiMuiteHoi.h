@@ -6,4 +6,4 @@
 
 int playerChoiceOfDirection();
 int computerChoiceOfDirection();
-std::string AMHWinner(int playerDirection, int computerDirection, std::string winner);
+std::string AMHWinner(int playerDirection, int computerDirection, std::string winnerOfRPS);
