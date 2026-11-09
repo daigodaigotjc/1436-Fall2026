@@ -45,7 +45,7 @@ int playerChoiceOfRPS()
 		}
 		else
 		{
-			std::cout << "Invalid choice. Please choose 1 for Rock, 2 for Paper, or 3 for Scissors." << std::endl;
+			std::cout << "Invalid choice. Please choose 1 for Rock, 2 for Paper, 3 for Scissors, or 4 to quit." << std::endl;
 			std::cin >> playerChoice;
 			continue;
 		}
