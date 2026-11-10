@@ -12,5 +12,11 @@ namespace TicTacToe
 	void updateGrid(twoDGrid& ticTacToeGrid, std::string playerMove, std::string playerID);
 
 	void printTheGrid(twoDGrid& ticTacToeGrid);
+
+	bool checkForWin(const twoDGrid& ticTacToeGrid);
+
+	bool checkForHorizontalWin(const twoDGrid& ticTacToeGrid);
+	bool checkForVerticalWin(const twoDGrid& ticTacToeGrid);
+	bool checkForDiagonalWin(const twoDGrid& ticTacToeGrid);
 }
 
