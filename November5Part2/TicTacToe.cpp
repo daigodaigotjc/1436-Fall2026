@@ -11,7 +11,6 @@ void TicTacToe::playGame(twoDGrid& ticTacToeGrid)
 
 	while (isGameWon == false)
 	{
-		printTheGrid(ticTacToeGrid);
 
 		std::cout << "Player X, enter your move: " << std::endl;
 		std::cout << "Allowed moves are: " << std::endl;
@@ -29,6 +28,17 @@ void TicTacToe::playGame(twoDGrid& ticTacToeGrid)
 		std::cout << "After the plater X made a move, the grid looks like: " << std::endl;
 		printTheGrid(ticTacToeGrid);
 
+		if (moveCount >= 5)
+		{
+			isGameWon = checkForHorizontalWin(ticTacToeGrid);
+			isGameWon = checkForVerticalWin(ticTacToeGrid);
+			isGameWon = checkForDiagonalWin(ticTacToeGrid);
+			if (isGameWon == true)
+			{
+				break;
+			}
+		}
+
 		/*now player O moves ***************************************/
 		std::cout << std::endl << std::endl;
 		std::cout << "Now player O" << std::endl;
@@ -43,7 +53,13 @@ void TicTacToe::playGame(twoDGrid& ticTacToeGrid)
 
 		if (moveCount >= 5)
 		{
-			isGameWon = true;
+			isGameWon = checkForHorizontalWin(ticTacToeGrid);
+			isGameWon = checkForVerticalWin(ticTacToeGrid);
+			isGameWon = checkForDiagonalWin(ticTacToeGrid);
+			if (isGameWon == true)
+			{
+				break;
+			}
 		}
 	}
 
@@ -111,9 +127,38 @@ void TicTacToe::printTheGrid(twoDGrid& ticTacToeGrid)
 
 bool TicTacToe::checkForHorizontalWin(const twoDGrid& ticTacToeGrid)
 {
-	if (ticTacToeGrid[0][0] == ticTacToeGrid[0][1] &&
-		ticTacToeGrid[0][1] == ticTacToeGrid[0][2])
+	for (int row = 0; row < ticTacToeGrid.size(); ++row)
 	{
+		if (ticTacToeGrid[row][0] == ticTacToeGrid[row][1] &&
+			ticTacToeGrid[row][1] == ticTacToeGrid[row][2])
+		{
+			std::cout << "Player " << ticTacToeGrid[row][0] << " won!" << std::endl;
+			return true;
+		}
+	}
+	return false;
+}
+
+bool TicTacToe::checkForVerticalWin(const twoDGrid& ticTacToeGrid)
+{
+	for (int col = 0; col < ticTacToeGrid[0].size(); ++col)
+	{
+		if (ticTacToeGrid[0][col] == ticTacToeGrid[1][col] &&
+			ticTacToeGrid[1][col] == ticTacToeGrid[2][col])
+		{
+			std::cout << "Player " << ticTacToeGrid[0][col] << " won!" << std::endl;
+			return true;
+		}
+	}
+	return false;
+}
+
+bool TicTacToe::checkForDiagonalWin(const twoDGrid& ticTacToeGrid)
+{
+	if ((ticTacToeGrid[0][0] == ticTacToeGrid[1][1] && ticTacToeGrid[1][1] == ticTacToeGrid[2][2]) ||
+		(ticTacToeGrid[0][2] == ticTacToeGrid[1][1] && ticTacToeGrid[1][1] == ticTacToeGrid[2][0]))
+	{
+		std::cout << "Player " << ticTacToeGrid[1][1] << " won!" << std::endl;
 		return true;
 	}
 	return false;
