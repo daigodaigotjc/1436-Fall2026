@@ -24,7 +24,6 @@ std::vector<std::string> getAllDictionaryWords(std::string filename)
 	{
 		words.push_back(currentWord);
 	}
-	std::cout << "The number of words is: " << words.size() << std::endl;
 
 	return words;
 }
@@ -56,6 +55,19 @@ std::string generatePlaceholder(std::string wordToGuess)
 	return placeholder;
 }
 
+void findAndReplace(std::string wordToGuess, std::string& placeholder, char characterToSearchFor)
+{
+	for (int location = 0; location < placeholder.size(); ++location)
+	{
+		if (wordToGuess[location] == characterToSearchFor)
+		{
+			placeholder[location] = characterToSearchFor;
+		}
+	}
+
+	std::cout << "The updated placeholder is: " << placeholder << std::endl;
+}
+
 void playHangman()
 {
 	std::string absoluteFilepath = "C:\\Users\\daigo\\Downloads\\popular.txt";
@@ -66,12 +78,28 @@ void playHangman()
 
 	std::string placeholder = generatePlaceholder(wordToGuess);
 
-
-	std::cout << "The word is: " << wordToGuess << std::endl;
 	std::cout << "The word to guess is: " << placeholder << std::endl;
 
-	while (placeholder != wordToGuess)
-	{
+	int maxGuessesAllowed = wordToGuess.size() + 5;
+	int currentNumberOfGuesses = 0;
 
+	while (placeholder != wordToGuess && currentNumberOfGuesses < maxGuessesAllowed)
+	{
+		char guessedCharacter;
+		std::cout << "Guess a letter: " << std::endl;
+		std::cin >> guessedCharacter;
+		currentNumberOfGuesses++;
+
+		findAndReplace(wordToGuess, placeholder, guessedCharacter);
+			
+	}
+
+	if (currentNumberOfGuesses >= maxGuessesAllowed)
+	{
+		std::cout << "You have run out of guesses. The word was: " << wordToGuess << std::endl;
+	}
+	else
+	{
+		std::cout << "Congratulations! You guessed the word: " << wordToGuess << std::endl;
 	}
 }
