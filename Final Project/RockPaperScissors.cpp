@@ -7,11 +7,7 @@
 #include <cstdlib>
 
 
-
 std::vector<std::string> RPSChoices = { "Rock", "Paper", "Scissors", "quit" };
-
-
-
 
 //function for player choice of the options 1:Rock 2:Paper 3:Scissors and show its choice
 int playerChoiceOfRPS()

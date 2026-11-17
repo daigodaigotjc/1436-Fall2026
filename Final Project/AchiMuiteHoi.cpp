@@ -6,9 +6,7 @@
 #include <cstdlib>
 
 
-
 std::vector<std::string> AMHChoices = { "Up", "Down", "Left", "Right" };
-
 
 
 //function for player choice of the directions 1:Up 2:Down 3:Left 4:Right and show its choice
@@ -50,8 +48,6 @@ int playerChoiceOfDirection()
 	}//while end
 }
 
-
-
 //function for computer random direction and show the its choice
 int computerChoiceOfDirection()
 {
@@ -75,7 +71,6 @@ int computerChoiceOfDirection()
 	}
 	return computerChoice;
 }
-
 
 //function for deciding Achi Muite Hoi winner
 std::string AMHWinner(int playerDirection, int computerDirection, std::string winnerOfRPS)

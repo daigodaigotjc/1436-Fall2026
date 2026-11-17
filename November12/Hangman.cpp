@@ -44,3 +44,34 @@ std::string pickRandomWord(std::vector<std::string> words)
 
 	return randomWord;
 }
+
+std::string generatePlaceholder(std::string wordToGuess)
+{
+	std::string placeholder;
+
+	for (int i = 0; i < wordToGuess.size(); ++i)
+	{
+		placeholder.push_back('*');
+	}
+	return placeholder;
+}
+
+void playHangman()
+{
+	std::string absoluteFilepath = "C:\\Users\\daigo\\Downloads\\popular.txt";
+
+	std::vector<std::string> dictionaryWords = getAllDictionaryWords(absoluteFilepath);
+
+	std::string wordToGuess = pickRandomWord(dictionaryWords);
+
+	std::string placeholder = generatePlaceholder(wordToGuess);
+
+
+	std::cout << "The word is: " << wordToGuess << std::endl;
+	std::cout << "The word to guess is: " << placeholder << std::endl;
+
+	while (placeholder != wordToGuess)
+	{
+
+	}
+}
